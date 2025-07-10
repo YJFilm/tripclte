@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <title>지리는 정산</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <style>
+      body {
+        font-family: sans-serif;
+        padding: 2rem;
+        background: #fef9e7;
+      }
+      h1 {
+        text-align: center;
+        color: #333;
+      }
+      label {
+        display: block;
+        margin-top: 1rem;
+        font-weight: bold;
+      }
+      input, select, textarea {
+        width: 100%;
+        padding: 0.5rem;
+        margin-top: 0.3rem;
+        border-radius: 6px;
+        border: 1px solid #ccc;
+      }
+      button {
+        margin-top: 2rem;
+        padding: 0.8rem;
+        background: #f1c40f;
+        border: none;
+        width: 100%;
+        font-weight: bold;
+        border-radius: 6px;
+        cursor: pointer;
+      }
+    </style>
+  </head>
+  <body>
+    <h1>💸 지출 입력하기</h1>
+    <form onsubmit="handleSubmit(event)">
+      <label>이름
+        <select id="name">
+          <option>영준</option>
+          <option>현민</option>
+          <option>성훈</option>
+        </select>
+      </label>
+      <label>금액
+        <input type="number" id="amount" placeholder="얼마 썼나요?" required />
+      </label>
+      <label>항목
+        <select id="category">
+          <option>숙소</option>
+          <option>식비</option>
+          <option>교통</option>
+          <option>입장료</option>
+          <option>기타</option>
+        </select>
+      </label>
+      <label>메모
+        <textarea id="note" rows="3" placeholder="선택사항"></textarea>
+      </label>
+      <button type="submit">제출하기</button>
+    </form>
+
+    <script>
+      function handleSubmit(event) {
+        event.preventDefault();
+        const name = document.getElementById('name').value;
+        const amount = document.getElementById('amount').value;
+        const category = document.getElementById('category').value;
+        const note = document.getElementById('note').value;
+        alert(`✅ ${name}님이 ${category}로 ${amount}원을 입력했습니다!`);
+        document.querySelector("form").reset();
+      }
+    </script>
+  </body>
+</html>
+
